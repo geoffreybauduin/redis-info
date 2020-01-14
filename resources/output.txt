@@ -1,0 +1,110 @@
+# Server
+redis_version:3.2.5
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:6f9920d2ae584aa0
+redis_mode:standalone
+os:Linux 4.14.66-ovh-vps-grsec-zfs-classid x86_64
+arch_bits:64
+multiplexing_api:epoll
+gcc_version:4.9.2
+process_id:7
+run_id:a4fcd0061e667352b73ad678f944d41b23c9c67a
+tcp_port:6379
+uptime_in_seconds:2089968
+uptime_in_days:24
+hz:10
+lru_clock:1870516
+executable:/data/redis-server
+config_file:/redis.conf
+
+# Clients
+connected_clients:914
+client_longest_output_list:0
+client_biggest_input_buf:0
+blocked_clients:20
+
+# Memory
+used_memory:6146978688
+used_memory_human:5.72G
+used_memory_rss:6454341632
+used_memory_rss_human:6.01G
+used_memory_peak:6290131040
+used_memory_peak_human:5.86G
+total_system_memory:135210360832
+total_system_memory_human:125.92G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+mem_fragmentation_ratio:1.05
+mem_allocator:jemalloc-4.0.3
+
+# Persistence
+loading:0
+rdb_changes_since_last_save:9629911
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1578891904
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:19
+rdb_current_bgsave_time_sec:-1
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_last_write_status:ok
+
+# Stats
+total_connections_received:1209273
+total_commands_processed:1322487410
+instantaneous_ops_per_sec:448
+total_net_input_bytes:498224475818
+total_net_output_bytes:3210532894008
+instantaneous_input_kbps:125.06
+instantaneous_output_kbps:601.62
+rejected_connections:0
+sync_full:53
+sync_partial_ok:77
+sync_partial_err:4
+expired_keys:24052947
+evicted_keys:0
+keyspace_hits:227762505
+keyspace_misses:8586015
+pubsub_channels:20373
+pubsub_patterns:40
+latest_fork_usec:189282
+migrate_cached_sockets:0
+
+# Replication
+role:master
+connected_slaves:3
+slave0:ip=127.0.0.1,port=31000,state=online,offset=222662780961,lag=0
+slave1:ip=127.0.0.1,port=31003,state=online,offset=222662776891,lag=0
+slave2:ip=127.0.0.1,port=31001,state=online,offset=222662775148,lag=0
+master_repl_offset:222662781103
+repl_backlog_active:1
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:222661732528
+repl_backlog_histlen:1048576
+
+# CPU
+used_cpu_sys:44232.89
+used_cpu_user:16130.08
+used_cpu_sys_children:29.10
+used_cpu_user_children:259.26
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db1:keys=58,expires=0,avg_ttl=0
+db3:keys=307122,expires=307122,avg_ttl=5549135
+db4:keys=6,expires=6,avg_ttl=88504
+db6:keys=10453,expires=0,avg_ttl=0
+db7:keys=7,expires=5,avg_ttl=133782010
+db11:keys=32,expires=32,avg_ttl=137917
+db12:keys=38,expires=38,avg_ttl=115430
+db13:keys=98863,expires=98863,avg_ttl=85569597
