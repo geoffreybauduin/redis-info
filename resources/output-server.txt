@@ -1,0 +1,19 @@
+# Server
+redis_version:3.2.5
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:6f9920d2ae584aa0
+redis_mode:standalone
+os:Linux 4.14.66-ovh-vps-grsec-zfs-classid x86_64
+arch_bits:64
+multiplexing_api:epoll
+gcc_version:4.9.2
+process_id:7
+run_id:a4fcd0061e667352b73ad678f944d41b23c9c67a
+tcp_port:6379
+uptime_in_seconds:2089968
+uptime_in_days:24
+hz:10
+lru_clock:1870516
+executable:/data/redis-server
+config_file:/redis.conf

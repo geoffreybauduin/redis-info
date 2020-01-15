@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test1(t *testing.T) {
+func Test_Full(t *testing.T) {
 	content, err := ioutil.ReadFile("./resources/output.txt")
 	assert.NoError(t, err)
 	info, err := redisinfo.Parse(string(content))
@@ -188,6 +188,35 @@ func Test1(t *testing.T) {
 				Expires: 98863,
 				AvgTTL:  85569597,
 			},
+		},
+	}, td.StructFields{}, "got correct structure")
+}
+
+func Test_OnlyServer(t *testing.T) {
+	content, err := ioutil.ReadFile("./resources/output-server.txt")
+	assert.NoError(t, err)
+	info, err := redisinfo.Parse(string(content))
+	assert.NoError(t, err)
+	td.CmpStruct(t, info, redisinfo.Info{
+		Server: redisinfo.Server{
+			RedisVersion:    "3.2.5",
+			RedisGitSha1:    "00000000",
+			RedisGitDirty:   false,
+			RedisBuildID:    "6f9920d2ae584aa0",
+			RedisMode:       "standalone",
+			OS:              "Linux 4.14.66-ovh-vps-grsec-zfs-classid x86_64",
+			ArchBits:        64,
+			MultiplexingAPI: "epoll",
+			GCCVersion:      "4.9.2",
+			ProcessID:       7,
+			RunID:           "a4fcd0061e667352b73ad678f944d41b23c9c67a",
+			TCPPort:         6379,
+			UptimeInDays:    24,
+			UptimeInSeconds: 2089968,
+			HZ:              10,
+			LRUClock:        1870516,
+			Executable:      "/data/redis-server",
+			ConfigFile:      "/redis.conf",
 		},
 	}, td.StructFields{}, "got correct structure")
 }

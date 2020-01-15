@@ -53,11 +53,15 @@ func (i *Info) fromString(content string) error {
 	for idx := 0; idx < val.NumField(); idx++ {
 		field := val.Type().Field(idx)
 		if categoryName := field.Tag.Get("json"); categoryName != "-" && categoryName != "" {
+			if contentPerCategory[categoryName] == nil || len(contentPerCategory[categoryName]) == 0 {
+				// empty category
+				continue
+			}
 			fieldVal := val.Field(idx)
 			fieldValue := reflect.New(fieldVal.Type())
 			if categoryValue, ok := fieldValue.Interface().(category); ok {
 				if err := categoryValue.fromString(strings.Join(contentPerCategory[categoryName], "\n")); err != nil {
-					return err
+					return fmt.Errorf("cannot parse category %s: %w", categoryName, err)
 				}
 				valueToSet := reflect.Indirect(reflect.ValueOf(categoryValue))
 				if !fieldVal.CanSet() {
@@ -226,10 +230,10 @@ func (s *Keyspace) fromString(content string) error { return parseStruct(s, cont
 func sep(content string, lineSep string, keySep string) (map[string]string, error) {
 	parsed := map[string]string{}
 	lines := strings.Split(content, lineSep)
-	for _, line := range lines {
+	for nbr, line := range lines {
 		lineContent := strings.Split(line, keySep)
 		if len(lineContent) != 2 {
-			return nil, fmt.Errorf("invalid line: %s", line)
+			return nil, fmt.Errorf("invalid line %d: '%s'", nbr, line)
 		}
 		parsed[lineContent[0]] = lineContent[1]
 	}
