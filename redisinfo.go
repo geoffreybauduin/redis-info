@@ -36,6 +36,7 @@ type category interface {
 }
 
 func (i *Info) fromString(content string) error {
+	content = strings.Replace(content, "\r", "", -1) // remove all \r that are in the file
 	lines := strings.Split(content, "\n")
 	contentPerCategory := make(map[string][]string, 0)
 	currentCategory := ""
